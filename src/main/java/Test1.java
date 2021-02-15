@@ -18,7 +18,10 @@ public class Test1 {
         driver.get("http://localhost:8080/users");
 
         // вызываем метод заполнения формы
-        fillUser(new User("test1", "test2", "test3"));
+        fillUser(new User("Иван", "Петров", "Москва"));
+
+        // вызываем метода добавления юзера
+        addUser();
 
         // закрываем браузер
         driver.quit();
