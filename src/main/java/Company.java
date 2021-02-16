@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Company {
 
     private String fullName;
@@ -117,5 +119,24 @@ public class Company {
 
     public String getKpp() {
         return kpp;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Company company = (Company) o;
+        return Objects.equals(fullName, company.fullName) && Objects.equals(shortName, company.shortName) &&
+                Objects.equals(ogrn, company.ogrn) && Objects.equals(address, company.address) &&
+                Objects.equals(legalAddress, company.legalAddress) && Objects.equals(phone, company.phone) &&
+                Objects.equals(checkingAccount, company.checkingAccount) && Objects.equals(correspondentAccount,
+                company.correspondentAccount) && Objects.equals(bik, company.bik) && Objects.equals(inn, company.inn)
+                && Objects.equals(kpp, company.kpp);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fullName, shortName, ogrn, address, legalAddress, phone,
+                checkingAccount, correspondentAccount, bik, inn, kpp);
     }
 }
