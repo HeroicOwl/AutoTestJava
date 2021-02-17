@@ -29,7 +29,7 @@ public class Task2 {
     @BeforeMethod
     public void testFixtures() {
         driver.get("http://localhost:8080/companies");
-        company = new Company("длдлдООО ТЕСТОВЫЙ ТЕСТ", "ТЕСТ", "1234568", "Москва, ул. Тестовая 54",
+        company = new Company("ООО ТЕСТОВЫЙ ТЕСТ", "ТЕСТ", "1234568", "Москва, ул. Тестовая 54",
                 "Рязань, тестовая 78", "666-66-66", "98765431", "54927517", "123",
                 "1234567890", "123456789");
 
@@ -77,7 +77,7 @@ public class Task2 {
 
     @AfterClass
     public void cleanup() {
-        //driver.quit();
+        driver.quit();
     }
 
     private static void fillCompany(Company company) {
