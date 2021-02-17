@@ -17,6 +17,7 @@ public class Task2 {
 
     private static WebDriver driver;
     private Company company;
+    private String foundCompany;
 
     @BeforeClass
     public void setUp() {
@@ -28,7 +29,7 @@ public class Task2 {
     @BeforeMethod
     public void testFixtures() {
         driver.get("http://localhost:8080/companies");
-        company = new Company("gsdООО ТЕСТОВЫЙ ТЕСТ", "ТЕСТ", "1234568", "Москва, ул. Тестовая 54",
+        company = new Company("длдлдООО ТЕСТОВЫЙ ТЕСТ", "ТЕСТ", "1234568", "Москва, ул. Тестовая 54",
                 "Рязань, тестовая 78", "666-66-66", "98765431", "54927517", "123",
                 "1234567890", "123456789");
 
@@ -52,15 +53,31 @@ public class Task2 {
 
     }
 
-    //проверка поиска добавленной компании
+    //проверка поиска
     @Test
     public void foundCompany() {
-        
+        //получаем имя компании которую добавили ранее
+        foundCompany = company.getFullName();
+        // поиск названия равному foundCompany из всего списка
+        List<String> foundCompanyBefore = getFoundCompanyList();
+        System.out.println("из всего списка foundCompany " + foundCompanyBefore);
+
+        // тест поиска
+        driver.findElement(By.name("filter")).sendKeys(foundCompany);
+        driver.findElement(By.xpath(".//form/button")).click();
+
+        List<String> foundCompany = getFoundCompanyList();
+
+        System.out.println("из поиска foundCompany " + foundCompany);
+
+        assertEquals(foundCompanyBefore, foundCompany);
+
+
     }
 
     @AfterClass
     public void cleanup() {
-        driver.quit();
+        //driver.quit();
     }
 
     private static void fillCompany(Company company) {
@@ -105,5 +122,21 @@ public class Task2 {
 
         }
         return companies;
+    }
+
+    //метод на получение fullName компаний
+    private List<String> getFoundCompanyList() {
+        List<WebElement> elements = driver.findElements(By.xpath(".//tr[@name='item']"));
+        List<String> fullNames = new ArrayList<>();
+        for (WebElement element : elements) {
+
+            String fullName = element.findElement(By.xpath(".//td[@name='fullName']")).getText();
+            if (foundCompany.equals(fullName)) {
+                fullNames.add(fullName);
+            }
+
+        }
+        return fullNames;
+
     }
 }
