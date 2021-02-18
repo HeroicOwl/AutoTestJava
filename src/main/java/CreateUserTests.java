@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 import static org.testng.Assert.assertEquals;
-
+//тест
 // класс с тестом на добавление юзера
 public class CreateUserTests extends TestBase {
     private User user, user1, user2, updateUser;
