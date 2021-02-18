@@ -41,7 +41,7 @@ public class Test1 {
     @AfterClass
     public void cleanup() {
         // закрываем браузер
-        driver.quit();
+        //driver.quit();
     }
 
 
@@ -59,14 +59,14 @@ public class Test1 {
         usersBefore.add(user);
         System.out.println("Добавили первого нового юзера: " + usersBefore);
 
-        fillUser(user1);
+        /*fillUser(user1);
         addUser();
         usersBefore.add(user1);
         System.out.println("Добавили второго нового юзера: " + usersBefore);
         fillUser(user2);
         System.out.println("Добавили третьего нового юзера: " + usersBefore);
         addUser();
-        usersBefore.add(user2);
+        usersBefore.add(user2);*/
 
         //новый список после добавления
         List<User> users = getUserList();
@@ -76,6 +76,14 @@ public class Test1 {
         //сравнение двух списков
         assertEquals(usersBefore, users);
 
+
+
+    }
+
+    @Test
+    public void update() {
+        driver.findElement(By.xpath(".//a[text()='Редактировать']")).click();
+        fillUser(new User("1", "2", "3"));
 
 
     }
