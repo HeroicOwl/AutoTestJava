@@ -82,6 +82,7 @@ public class Test1 {
 
     @Test
     public void update() {
+        
         driver.findElement(By.xpath(".//a[text()='Редактировать']")).click();
         fillUser(new User("1", "2", "3"));
 
