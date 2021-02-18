@@ -62,7 +62,7 @@ public class CreateUserTests extends TestBase {
         UsersPage usersPage = new UsersPage(driver);
         UserPage userPage = usersPage.open().clickUpdateUser();
         //действия на странице редактирования пользователя
-        userPage.fillUser(new User("Отредактированный", "Пользователь", "тест"));
+        userPage.fillUser(updateUser);
         //userPage.updateUser();
 
 
