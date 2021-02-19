@@ -18,11 +18,20 @@ public class UserForm {
         // Заполнить поле
         // Метод findElement() возвращает WebElement, у которого вызывается метод sendKeys()
         //System.out.println(user.toString());
-        driver.findElement(By.name("fName")).click();
-        driver.findElement(By.name("fName")).clear();
+        //driver.findElement(By.name("fName")).click();
+        //driver.findElement(By.name("fName")).clear();
 
+        // КОСТЫЛЬ иначе поля не заполняются вообще
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        driver.findElement(By.name("fName")).clear();
         driver.findElement(By.name("fName")).sendKeys(user.getfName());
+        driver.findElement(By.name("lName")).clear();
         driver.findElement(By.name("lName")).sendKeys(user.getlName());
+        driver.findElement(By.name("address")).clear();
         driver.findElement(By.name("address")).sendKeys(user.getAddress());
 
     }

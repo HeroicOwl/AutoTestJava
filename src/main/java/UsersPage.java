@@ -46,6 +46,11 @@ public class UsersPage {
         return new UserPage(driver);
     }
 
+    public UsersPage deleteUser(){
+        driver.findElement(By.xpath(".//a[@class='btn btn-danger']")).click();
+        return this;
+    }
+
     // получение списка юзеров
     public List<User> getUserList() {
         //В списке elements хранятся все строки таблицы. Хранятся как объекты типа WebElement.

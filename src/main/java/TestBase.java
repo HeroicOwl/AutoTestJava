@@ -17,8 +17,10 @@ public class TestBase {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         //новый объект для запуска браузера
         driver = new ChromeDriver();
-        driver  .manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-        driver  .manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+
     }
 
     // после выполнения всех тестовых методов
