@@ -1,3 +1,4 @@
+import jdk.jfr.Description;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -24,8 +25,7 @@ public class UserTests extends TestBase {
 
     }
 
-    //создание юзера
-    @Test(priority = 1)
+    @Test(description = "Тест создания юзера", priority = 1)
     public void createUserTest() {
         System.out.println("Старт тест добавления юзера");
         //В тесте создадим экземпляр класса UserPage
@@ -53,8 +53,7 @@ public class UserTests extends TestBase {
         assertEquals(usersBefore, users);
     }
 
-    //редактирование юзера
-    @Test(priority = 2)
+    @Test(description = "Тест редактирования юзера", priority = 2)
     public void updateUserTest() {
 
         UsersPage usersPage = new UsersPage(driver);
