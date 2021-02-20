@@ -1,3 +1,5 @@
+package general;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
@@ -8,7 +10,8 @@ import java.util.concurrent.TimeUnit;
 // класс подключения с методами запуска и остановки драйвера
 public class TestBase {
 
-    WebDriver driver;
+    //по умолчанию default т е доступен только в пределах этого пакета
+    public WebDriver driver;
 
     //Самый первый
     @BeforeClass

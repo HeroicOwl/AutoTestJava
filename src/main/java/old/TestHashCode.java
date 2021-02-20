@@ -1,3 +1,7 @@
+package old;
+
+import classes.User;
+
 import java.util.HashSet;
 import java.util.Set;
 
