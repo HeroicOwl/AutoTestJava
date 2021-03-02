@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 public class TestBase {
 
     //по умолчанию default т е доступен только в пределах этого пакета
-    public WebDriver driver;
+    //public WebDriver driver;
 
     //Самый первый
     @BeforeClass
@@ -27,9 +27,9 @@ public class TestBase {
     }
 
     // после выполнения всех тестовых методов
-    @AfterClass
+    /*@AfterClass
     public void cleanup() {
         // закрываем браузер
         //driver.quit();
-    }
+    }*/
 }

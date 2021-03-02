@@ -6,11 +6,11 @@ import org.openqa.selenium.WebDriver;
 import static com.codeborne.selenide.Selenide.$;
 
 public class UserPage {
-    private WebDriver driver;
+    //private WebDriver driver;
     private UserForm userForm;
 
-    public UserPage(WebDriver driver) {
-        this.driver = driver;
+    public UserPage() {
+        //this.driver = driver;
         this.userForm = new UserForm();
     }
     //возвращать return this, если остаемся на той же странице или возвращать экземпляр класс новой страницы.

@@ -1,12 +1,12 @@
 package classes;
 
-import com.codeborne.selenide.ElementsCollection;
+
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Selenide.*;
 //методы в отдельном классе
 public class UsersPage {
 
-    private WebDriver driver;
+    //private WebDriver driver;
     private UserForm userForm;
 
     //Создадим поле driver конструктор класса, в который будем передавать ссылку на driver.
@@ -52,7 +52,7 @@ public class UsersPage {
     public UserPage clickUpdateUser() {
         //driver.findElement(By.xpath(".//a[text()='Редактировать']")).click();
         $(By.xpath(".//a[text()='Редактировать']")).click();
-        return new UserPage(driver);
+        return new UserPage();
     }
 
     public UsersPage deleteUser(){
@@ -62,19 +62,19 @@ public class UsersPage {
     }
 
     // получение списка юзеров
-    /*public List<User> getUserList() {
+    public List<User> getUserList() {
         //В списке elements хранятся все строки таблицы. Хранятся как объекты типа WebElement.
         //List<WebElement> elements = driver.findElements(By.xpath(".//tr[@name='item']"));
-        ElementsCollection elements = $$(By.xpath(".//tr[@name='item']"));
+        List<SelenideElement> elements = $$(By.xpath(".//tr[@name='item']"));
 
         List<User> users = new ArrayList<>();
-        for (ElementsCollection element : elements) {
-            String name = element.findElement(By.xpath(".//td[@name='fName']")).getText();
-            String lName = element.findElement(By.xpath(".//td[@name='lName']")).getText();
-            String address = element.findElement(By.xpath(".//td[@name='address']")).getText();
+        for (SelenideElement element : elements) {
+            String name = element.$(By.xpath(".//td[@name='fName']")).getText();
+            String lName = element.$(By.xpath(".//td[@name='lName']")).getText();
+            String address = element.$(By.xpath(".//td[@name='address']")).getText();
             User user = new User(name, lName, address);
             users.add(user);
         }
         return users;
-    }*/
+    }
 }

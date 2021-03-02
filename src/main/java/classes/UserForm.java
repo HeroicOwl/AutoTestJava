@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 // можно вынести общий компонент этих страниц в отдельный класс UserForm.
 // И вынести туда метод заполнения формы.
 public class UserForm {
-    private WebDriver driver;
+    //private WebDriver driver;
 
     //Создадим поле driver конструктор класса, в который будем передавать ссылку на driver.
     /*public UserForm(WebDriver driver) {
